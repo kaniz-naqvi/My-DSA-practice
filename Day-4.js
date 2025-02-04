@@ -3,22 +3,21 @@
 //Write a function to find the first non-repeating character in a string, case-insensitive comparisons (e.g., treat 'A' and 'a' as the same character).
 
 function firstNonRepeatingCharacter(str) {
-  let lowerCaseStr = str.toLowerCase(); //Convert string to lowercase to handle case insensitivity
-  //Converting string to hash table.
-  let frequency = lowerCaseStr.split("").reduce((map, char) => {
-    map[char] = (map[char] || 0) + 1;
-    return map;
-  }, {});
-  //Find the first character with a count of 1.
-  for (let i = 0; i < str.length; i++) {
-    if (frequency[lowerCaseStr[i]] === 1) {
-      return str[i]; //exit the function as soon as first character found.
+  let lowerStr = str.toLowerCase();
+  let frequency = {};
+  for (let char of lowerStr) {
+    frequency[char] = (frequency[char] || 0) + 1;
+  }
+  for (let char of str) {
+    if (frequency[char.toLowerCase()] === 1) {
+      return char;
     }
   }
   return null;
 }
-console.log(firstNonRepeatingCharacter("Ayli")); //A
-console.log(firstNonRepeatingCharacter("Aylia")); //y
+
+console.log(firstNonRepeatingCharacter("Ayli")); // output: A
+console.log(firstNonRepeatingCharacter("Aylia")); // output: y
 
 /*****Question 02******/
 //Research and write a short explanation of how collision resolution works in hash maps (e.g., chaining vs. open addressing).
@@ -53,19 +52,3 @@ console.log(firstNonRepeatingCharacter("Aylia")); //y
 // 6. Summary
 // Chaining: Efficient and simple to implement, but requires additional memory for the linked lists.
 // Open Addressing: More memory efficient as it doesn't require extra data structures, but can suffer from clustering and performance degradation as the table fills up.
-
-//Write a function to find the first non-repeating character in a string, case-insensitive comparisons (e.g., treat 'A' and 'a' as the same character).
-function firstNonRepeatingCharacter2(str) {
-  let lowerStr = str.toLowerCase();
-  let frequency = {};
-  for (let char of lowerStr) {
-    frequency[char] = (frequency[char] || 0) + 1;
-  }
-  for (let char of str) {
-    if (frequency[char.toLowerCase()] === 1) {
-      return char;
-    }
-  }
-  return null;
-}
-console.log(firstNonRepeatingCharacter2("Aylia"));
