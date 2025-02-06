@@ -7,7 +7,7 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 - [Days 1-10](#days-1-10)
 
 ## Days 1-10:
-- **Day 1**: Basic Data Structures & Algorithms (e.g., check even numbers, all even numbers between 1-20, find max num in an array)
+- [**Day 1**](./Day-1.js): Basic Data Structures & Algorithms (e.g., check even numbers, all even numbers between 1-20, find max num in an array)
 - **Day 2**: Solved problems on Linked Lists (e.g., Reverse Linked List)
 - **Day 3**: Solved problems on Dynamic Programming (e.g., Knapsack Problem)
 - **Day 4**: Solved problems on Stacks (e.g., Balanced Parentheses)
