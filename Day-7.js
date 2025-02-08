@@ -1,7 +1,6 @@
 /****************************Day 7*******************************/
 /*****Question 01******/
 //Write a function to find the maximum subarray sum (Kadane’s Algorithm) and analyze its time and space complexity.
-//I am not familiar with Kadane’s Algorithm and do not know how can I make subarrays of my array.
 
 function maxSubarraySum(arr) {
   let maxEnding = arr[0];
@@ -33,12 +32,3 @@ function isPalindrome(str) {
 //The time complexity is O(n) (due to the loop and join operation), and the space complexity is O(1).
 console.log(isPalindrome("mehak")); // output: false
 console.log(isPalindrome("level")); //output: true
-
-
-
-
-
-
-
-
-
