@@ -49,9 +49,3 @@ function merge(left, right) {
   return result;
 }
 console.log(mergeSort([12, 11, 13, 5, 6, 7]));
-/****************************Day 10*******************************/
-/*****Question 01******/
-//Write a function to implement Quick Sort and test it on the following array:
-//const arr = [3, 6, 8, 10, 1, 2, 1];
-/*****Question 02******/
-//Compare the performance of Merge Sort and Quick Sort on a large dataset (e.g., an array of 10,000 random numbers). Which one is faster? Why?
