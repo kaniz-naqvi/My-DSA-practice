@@ -82,7 +82,9 @@ console.timeEnd("Merge Sort"); // output: Merge Sort: 23.478ms
 //
 //Which one is faster? Why?
 /*
-✅ In-place Sorting → Quick Sort doesn’t require extra space like Merge Sort.
-✅ Cache Efficiency → Quick Sort is more cache-friendly due to sequential memory access.
-✅ Optimized for Random Data → Merge Sort has a fixed O(n log n) time, but Quick Sort is usually
+Explanation:
+ Quick Sort is faster in practice because:
+1. In-place Sorting: It doesn’t require extra space like Merge Sort.
+2. Cache Efficiency: It accesses memory sequentially, making it cache-friendly.
+3. Optimized for Random Data: Quick Sort performs well on average, even though its worst-case time complexity is O(n^2).
 */
