@@ -23,10 +23,10 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 ### How to Use:
 - Each day, a new file `day-x.js` is added, where `x` corresponds to the day number.
 - The file contains the solution to a specific problem I tackled that day.
-- You can clone this repository and check the progress or contribute if you like.
+- You can clone this repository and check the progress.
 
 ---
 
 ### Why This Format?
 - **Table of Contents (TOC)** makes it easier to navigate through different days and topics.
-- **Range-based Organization** allows you to track progress over longer periods and see patterns in your learning.
+- **Range-based Organization** allows to track progress over longer periods and see patterns in learning.
