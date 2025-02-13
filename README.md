@@ -8,7 +8,7 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 
 ## Days 1-10:
 - [**Day 1**](./Day-1.js): Basic Data Structures & Algorithms (e.g., check even numbers, all even numbers between 1-20, find max num in an array)
-- **Day 2**: Solved problems on Linked Lists (e.g., Reverse Linked List)
+- [**Day 2**](./Day-2.js): Arrays and Strings (e.g., Remove duplicants from array, reverse a string without using built-in method, find second largest number)
 - **Day 3**: Solved problems on Dynamic Programming (e.g., Knapsack Problem)
 - **Day 4**: Solved problems on Stacks (e.g., Balanced Parentheses)
 - **Day 5**: Solved problems on Queues (e.g., Implement Queue using Stacks)
