@@ -17,7 +17,7 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 - [**Day 9**](./Day-8.js): Solved problems on Graphs (e.g., DFS, BFS)
 - [**Day 9**](./Day-9.js): Solved problems on Recursion (e.g., Factorial, Fibonacci)
 - [**Day 10**](./Day-10.js): Solved problems on Strings (e.g., Anagram Check, Palindrome)
-- [**Revision day 1](./revision-day-part(1).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
+- [**Revision day 1](./revision day1-10-part(1).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
 ---
 
 ### How to Use:
