@@ -5,7 +5,7 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 ## Table of Contents
 
 - [Days 1-10](#days-1-10)
-
+- [Days 13-23](#days-1-10)
 ## Days 1-10:
 - [**Day 1**](./Day-1.js): Basic Data Structures & Algorithms (e.g., check even numbers, all even numbers between 1-20, find max num in an array)
 - [**Day 2**](./Day-2.js): Arrays and Strings (e.g., Remove duplicants from array, reverse a string without using built-in method, find second largest number)
@@ -20,7 +20,6 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 - [**Revision day 1**](./revision%20day1-10%20part(1).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
 - [**Revision day 2**](./revision%20day1-10%20part(2).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
 ---
-- [Days 13-23](#days-1-10)
   ## Day13-23:
 ---
 ### How to Use:
