@@ -16,11 +16,13 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 - [**Day 7**](./Day-7.js): Solved problems on Searching (e.g., Binary Search)
 - [**Day 9**](./Day-8.js): Solved problems on Graphs (e.g., DFS, BFS)
 - [**Day 9**](./Day-9.js): Solved problems on Recursion (e.g., Factorial, Fibonacci)
-- [**Day 10**](./Day-10.js): Solved problems on Strings (e.g., Anagram Check, Palindrome)
+- [**Day 10**](./Day-10.js): Quick Sort (e.g., implement quick sort, compare the performance of quick and merge sort)
 - [**Revision day 1**](./revision%20day1-10%20part(1).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
 - [**Revision day 2**](./revision%20day1-10%20part(2).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
 ---
-
+- [Days 13-23](#days-1-10)
+  ## Day13-23:
+---
 ### How to Use:
 - Each day, a new file `day-x.js` is added, where `x` corresponds to the day number.
 - The file contains the solution to a specific problem I tackled that day.
