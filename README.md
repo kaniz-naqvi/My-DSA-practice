@@ -20,7 +20,7 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 - [**Revision day 1**](./revision%20day1-10%20part(1).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
 - [**Revision day 2**](./revision%20day1-10%20part(2).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
 ---
-  ## Day13-23:
+  ## Day 13-23:
 ---
 ### How to Use:
 - Each day, a new file `day-x.js` is added, where `x` corresponds to the day number.
