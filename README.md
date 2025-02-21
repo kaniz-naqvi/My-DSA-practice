@@ -18,7 +18,7 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 - [**Day 9**](./Day-9.js): Solved problems on Recursion (e.g., Factorial, Fibonacci)
 - [**Day 10**](./Day-10.js): Quick Sort (e.g., implement quick sort, compare the performance of quick and merge sort)
 - [**Revision day 1**](./revision%20day1-10%20part(1).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
-- [**Revision day 2**](./revision%20day1-10%20part(2).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
+- [**Revision day 2**](./revision%20day1-10%20part(2).js): Solved problems on leetcode (e.g., Merge Sorted array, sort in-place using Kadane's Algorithm)
 ---
   ## Day 13-23:
 ---
