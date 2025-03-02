@@ -13,7 +13,7 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 - [**Day 4**](./Day-4.js): Hash Maps (e.g., Find first non repeating character)
 - [**Day 5**](./Day-5.js): Recursion (e.g., calculate sum of all numbers 1 to n, reverse a string)
 - [**Day 6**](./Day-6.js): Recursion and Iteration (e.g., calculating power of a num using both)
-- [**Day 7**](./Day-7.js): Solved problems on Searching (e.g., Binary Search)
+- [**Day 7**](./Day-7.js): Time and Space complexity (e.g., palindrome checker, max sub array)
 - [**Day 9**](./Day-8.js): Solved problems on Graphs (e.g., DFS, BFS)
 - [**Day 9**](./Day-9.js): Solved problems on Recursion (e.g., Factorial, Fibonacci)
 - [**Day 10**](./Day-10.js): Quick Sort (e.g., implement quick sort, compare the performance of quick and merge sort)
