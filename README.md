@@ -14,7 +14,7 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 - [**Day 5**](./Day-5.js): Recursion (e.g., calculate sum of all numbers 1 to n, reverse a string)
 - [**Day 6**](./Day-6.js): Recursion and Iteration (e.g., calculating power of a num using both)
 - [**Day 7**](./Day-7.js): Time and Space complexity (e.g., palindrome checker, max sub array)
-- [**Day 8**](./Day-8.js): Solved problems on Graphs (e.g., DFS, BFS)
+- [**Day 8**](./Day-8.js): Sorting Algorithms (e.g., Bubble sort, selection sort)
 - [**Day 9**](./Day-9.js): Solved problems on Recursion (e.g., Factorial, Fibonacci)
 - [**Day 10**](./Day-10.js): Quick Sort (e.g., implement quick sort, compare the performance of quick and merge sort)
 - [**Revision day 1**](./revision%20day1-10%20part(1).js): Solved problems on leetcode (e.g., Anagram Check, Palindrome)
