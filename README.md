@@ -21,8 +21,8 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
 - [**Revision day 2**](./revision%20day1-10%20part(2).js): Solved problems on leetcode (e.g., Merge Sorted array, sort in-place using Kadane's Algorithm)
 ---
   ## Day 13-23:
-  - [**Day 13**](./Day-13.js): Basic Data Structures & Algorithms (e.g., check even numbers, all even numbers between 1-20, find max num in an array)  
-  - [**Day 14**](./Day-14.js): Arrays and Strings (e.g., Remove duplicants from array, reverse a string without using built-in method, find second largest number)
+  - [**Day 13**](./Day-13.js): Singly Linked Lists (e.g., check even numbers, all even numbers between 1-20, find max num in an array)  
+  - [**Day 14**](./Day-14.js): Doubly Linked Lists (e.g., Remove duplicants from array, reverse a string without using built-in method, find second largest number)
   - [**Day 15**](./Day-15.js): Objects and Hash Maps (e.g., Freaquency of characters in a string, most frequent element in an array)
   - [**Day 16**](./Day-16.js): Hash Maps (e.g., Find first non repeating character)
   - [**Day 17**](./Day-17.js): Recursion (e.g., calculate sum of all numbers 1 to n, reverse a string)
