@@ -26,6 +26,11 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
   - [**Day 15**](./Day-15.js): Objects and Hash Maps (e.g., Freaquency of characters in a string, most frequent element in an array)
   - [**Day 16**](./Day-16.js): Hash Maps (e.g., Find first non repeating character)
   - [**Day 17**](./Day-17.js): Recursion (e.g., calculate sum of all numbers 1 to n, reverse a string)
+  - [**Day 18**](./Day-18.js): Recursion (e.g., calculate sum of all numbers 1 to n, reverse a string)
+  - [**Day 19**](./Day-19.js): Recursion (e.g., calculate sum of all numbers 1 to n, reverse a string)
+  - [**Day 20**](./Day-20.js): Two-Pointer Technique (e.g., Two Sum, Remove Duplicates)
+
+
 ---
 ### How to Use:
 - Each day, a new file `day-x.js` is added, where `x` corresponds to the day number.
