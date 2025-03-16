@@ -29,6 +29,7 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
   - [**Day 18**](./Day-18.js): Recursion (e.g., calculate sum of all numbers 1 to n, reverse a string)
   - [**Day 19**](./Day-19.js): Recursion (e.g., calculate sum of all numbers 1 to n, reverse a string)
   - [**Day 20**](./Day-20.js): Two-Pointer Technique (e.g., Two Sum, Remove Duplicates)
+  - [**Day 21**](./Day-21.js): Sliding Window Technique (e.g., Maximum Sum Subarray, Longest Substring Without Repeating Characters)
 
 
 ---
