@@ -23,7 +23,7 @@ This repository contains my ongoing practice of **Data Structures and Algorithms
   ## Day 13-23:
   - [**Day 13**](./Day-13.js): Singly Linked Lists (e.g., Singly Linked List with search and delete functionality)  
   - [**Day 14**](./Day-14.js): Doubly Linked Lists (e.g., Remove duplicants from array, reverse a string without using built-in method, find second largest number)
-  - [**Day 15**](./Day-15.js): Objects and Hash Maps (e.g., Freaquency of characters in a string, most frequent element in an array)
+  - [**Day 15**](./Day-15.js): Queues (e.g., circular queue, implement a simple queue)
   - [**Day 16**](./Day-16.js): Hash Maps (e.g., Find first non repeating character)
   - [**Day 17**](./Day-17.js): Recursion (e.g., calculate sum of all numbers 1 to n, reverse a string)
   - [**Day 18**](./Day-18.js): Recursion (e.g., calculate sum of all numbers 1 to n, reverse a string)
