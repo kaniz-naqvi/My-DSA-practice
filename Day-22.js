@@ -37,5 +37,5 @@ function findDuplicate(nums) {
   }
   return slow;
 }
-console.log(findDuplicate([1, 2, 3, 4, 5, 2])); //2
-console.log(findDuplicate([1, 3, 3, 4, 5])); //undefined
+
+console.log(findDuplicate([1, 2, 3, 4, 5, 2])); // 2
