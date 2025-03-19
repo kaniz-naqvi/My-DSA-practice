@@ -19,21 +19,23 @@ function isHappy(num) {
   } while (slow !== fast);
   return slow === 1;
 }
-console.log(isHappy(19));
-console.log(isHappy(8));
+console.log(isHappy(19)); // true
+console.log(isHappy(8)); // false
 /******* Question 2********/
-//Given a singly linked list, determine if it is a palindrome.
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
+//Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n], prove that at least one duplicate number exists, and return the duplicate number.
+function findDuplicate(nums) {
+  let slow = nums[0],
+    fast = nums[0];
+  do {
+    slow = nums[slow];
+    fast = nums[nums[fast]];
+  } while (slow !== fast);
+  slow = nums[0];
+  while (slow !== fast) {
+    slow = nums[slow];
+    fast = nums[fast];
   }
+  return slow;
 }
-function isPalindrome(head) {
-  let fast = head,
-    slow = head;
-  while (fast && fast.next) {
-    slow = slow.next;
-    fast = fast.next.next;
-  }
-}
+console.log(findDuplicate([1, 2, 3, 4, 5, 2])); //2
+console.log(findDuplicate([1, 3, 3, 4, 5])); //undefined
