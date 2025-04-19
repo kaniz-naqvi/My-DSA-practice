@@ -1,8 +1,11 @@
 #include <climits>
 #include <iostream>
+#include <set>
+#include <vector>
 using namespace std;
 
 int linearSearch(int arr[], int size, int target);
+set<int> intersection(vector<int> &arr1, vector<int> &arr2);
 void reverseArray(int array[], int size);
 void printArray(int arr[], int size) {
   for (int i = 0; i < size; i++) {
@@ -13,6 +16,17 @@ void printArray(int arr[], int size) {
   }
   cout << endl;
 }
+void printSet(set<int> s) {
+  cout << '{';
+  for (auto it = s.begin(); it != s.end(); ++it) {
+    cout << *it;
+    if (next(it) != s.end()) {
+      cout << ',';
+    }
+  }
+  cout << '}' << endl;
+}
+
 int main() {
   /*********** Question 1 *************/
   // Find smallest number in an array.
@@ -56,6 +70,11 @@ int main() {
   reverseArray(arr, arrSize);
   // print array
   printArray(arr, arrSize);
+  vector<int> arr1 = {1, 2, 3, 4, 8};
+  vector<int> arr2 = {3, 4, 5, 6, 8};
+  // intersection of 2 arrays
+  cout << "Intersection of {1, 2, 3, 4, 8} and {3, 4, 5, 6, 8} is: ";
+  printSet(intersection(arr1, arr2));
   return 0;
 }
 /*********** Question 4 *************/
@@ -77,4 +96,19 @@ void reverseArray(int array[], int size) {
     start++;
     end--;
   }
+}
+/*********** Question 6 *************/
+// intersection of 2 arrays
+
+set<int> intersection(vector<int> &arr1, vector<int> &arr2) {
+  vector<int> result;
+  for (int i = 0; i < arr1.size(); i++) {
+    for (int j = 0; j < arr2.size(); j++) {
+      if (arr1[i] == arr2[j]) {
+        result.push_back(arr1[i]);
+        break;
+      }
+    }
+  }
+  return set<int>(result.begin(), result.end());
 }
