@@ -1,102 +1,89 @@
-#include <cstring>
 #include <iostream>
+#include <string>
 using namespace std;
 
-class Event {
-private:
-  int eventId;
-  char *eventType;
-  char *eventName;
+// Recursive function to get valid 9-digit numeric ID
+string getId() {
+    string numericID;
+    cout << "Enter numeric part of VU-ID: ";
+    cin >> numericID;
 
-public:
-  // Default constructor
-  Event() {
-    eventId = 0;
-    eventType = nullptr;
-    eventName = nullptr;
-  }
+    if (numericID.length() != 9 ) {
+        cout << "Invalid input. Please enter exactly 9 numeric digits only.\n";
+        return getId(); // Retry
+    }
 
-  // Parameterized constructor
-  Event(int id, const char *type, const char *name) {
-    eventId = id;
+    return numericID;
+}
 
-    eventType = new char[strlen(type) + 1];
-    strcpy(eventType, type);
-
-    eventName = new char[strlen(name) + 1];
-    strcpy(eventName, name);
-  }
-
-  // Deep Copy Constructor
-  Event(const Event &e) {
-    eventId = e.eventId;
-
-    eventType = new char[strlen(e.eventType) + 1];
-    strcpy(eventType, e.eventType);
-
-    eventName = new char[strlen(e.eventName) + 1];
-    strcpy(eventName, e.eventName);
-  }
-
-  // Destructor
-  ~Event() {
-    delete[] eventType;
-    delete[] eventName;
-  }
-
-  // Setters
-  void setEventId(int id) { eventId = id; }
-
-  void setEventType(const char *type) {
-    if (eventType)
-      delete[] eventType;
-    eventType = new char[strlen(type) + 1];
-    strcpy(eventType, type);
-  }
-
-  void setEventName(const char *name) {
-    if (eventName)
-      delete[] eventName;
-    eventName = new char[strlen(name) + 1];
-    strcpy(eventName, name);
-  }
-
-  // Getters
-  int getEventId() const { return eventId; }
-
-  const char *getEventType() const { return eventType; }
-
-  const char *getEventName() const { return eventName; }
-
-  // Display Function
-  void display() const {
-    cout << "Event ID: " << eventId << endl;
-    cout << "Event Type: " << eventType << endl;
-    cout << "Event Name: " << eventName << endl;
-  }
-};
-
-// Do not modify this main function
 int main() {
-  Event event1(101, "Conference", "Tech Innovations");
+    // Hardcoded details
+    string name = "Muhammad Akif Hussain";
+    string vuID = "BC240417370";
 
-  Event event2 = event1;
+    cout << "Name:  " << name << endl;
+    cout << "VU-ID: " << vuID << endl;
 
-  Event event3;
-  event3.setEventId(202);
-  event3.setEventType("Corporate Party");
-  event3.setEventName("Annual Celebration");
+    // Get valid ID and extract digits
+    string numericID = getId();
+    string extracted = numericID.substr(2, 5);
+    cout << "\nExtracted Middle Five Digits: " << extracted << endl;
 
-  cout << "Event 1 Details:\n";
-  event1.display();
+    // Welcome and menu
+    cout << "\n=== Welcome to C++ Cafe ===" << endl;
+    cout << "------ MENU ------" << endl;
+    cout << "1. Burger       – Rs. 250" << endl;
+    cout << "2. Pizza        – Rs. 500" << endl;
+    cout << "3. Fries        – Rs. 150" << endl;
+    cout << "4. Sandwich     – Rs. 200" << endl;
+    cout << "5. Cold Drink   – Rs. 100" << endl;
 
-  cout << "\nEvent 2 (Copied from Event 1):\n";
-  event2.display();
+    // Prices (as per screenshot)
+    const int priceBurger = 250;
+    const int pricePizza = 500;
+    const int priceFries = 150;
+    const int priceSandwich = 200;
+    const int priceDrink = 100;
 
-  cout << "\nAccessing Event 3 details using getters:\n";
-  cout << "Event ID: " << event3.getEventId() << endl;
-  cout << "Event Type: " << event3.getEventType() << endl;
-  cout << "Event Name: " << event3.getEventName() << endl;
+    // Extract quantities
+    int qtyBurger = extracted[0] - '0';
+    int qtyPizza = extracted[1] - '0';
+    int qtyFries = extracted[2] - '0';
+    int qtySandwich = extracted[3] - '0';
+    int qtyDrink = extracted[4] - '0';
 
-  return 0;
+    // Calculate subtotals
+    int subBurger = qtyBurger * priceBurger;
+    int subPizza = qtyPizza * pricePizza;
+    int subFries = qtyFries * priceFries;
+    int subSandwich = qtySandwich * priceSandwich;
+    int subDrink = qtyDrink * priceDrink;
+
+    // Print billing
+    cout << "\nBurger (" << qtyBurger << " x Rs. " << priceBurger << ") = Rs. " << subBurger << endl;
+    cout << "Pizza (" << qtyPizza << " x Rs. " << pricePizza << ") = Rs. " << subPizza << endl;
+    cout << "Fries (" << qtyFries << " x Rs. " << priceFries << ") = Rs. " << subFries << endl;
+    cout << "Sandwich (" << qtySandwich << " x Rs. " << priceSandwich << ") = Rs. " << subSandwich << endl;
+    cout << "Cold Drink (" << qtyDrink << " x Rs. " << priceDrink << ") = Rs. " << subDrink << endl;
+
+    // Total and discount
+    int total = subBurger + subPizza + subFries + subSandwich + subDrink;
+    double discount = 0;
+
+    if (total >= 5000) {
+        cout << "\nSurprise! You've unlocked a 10% discount" << endl;
+        discount = total * 0.10;
+    }
+
+    double finalAmount = total - discount;
+
+    // Final bill
+    cout << "\n==== Final Bill ====" << endl;
+    cout << "Total before discount: Rs. " << total << endl;
+    cout << "Discount: Rs. " << discount << endl;
+    cout << "Net Payable Amount: Rs. " << finalAmount << endl;
+
+    cout << "\nThank you for visiting C++ Cafe!" << endl;
+
+    return 0;
 }
