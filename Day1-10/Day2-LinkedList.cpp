@@ -2,88 +2,123 @@
 #include <string>
 using namespace std;
 
-// Recursive function to get valid 9-digit numeric ID
-string getId() {
-    string numericID;
-    cout << "Enter numeric part of VU-ID: ";
-    cin >> numericID;
+class Product {
+private:
+  int serial;
+  int productId;
+  Product *next;
 
-    if (numericID.length() != 9 ) {
-        cout << "Invalid input. Please enter exactly 9 numeric digits only.\n";
-        return getId(); // Retry
+public:
+  Product(int s = 0, int pid = 0) {
+    serial = s;
+    productId = pid;
+    next = nullptr;
+  }
+
+  int getSerial() { return serial; }
+
+  int getProductId() { return productId; }
+
+  Product *getNext() { return next; }
+
+  void setNext(Product *nxt) { next = nxt; }
+};
+
+class Queue {
+private:
+  Product *front;
+  Product *rear;
+
+public:
+  Queue() { front = rear = nullptr; }
+
+  void enqueue(int serial, int pid) {
+    Product *newNode = new Product(serial, pid);
+    if (rear == nullptr) {
+      front = rear = newNode;
+    } else {
+      rear->setNext(newNode);
+      rear = newNode;
+    }
+    cout << "Added -> Serial: " << serial << ", Product ID: " << pid << endl;
+  }
+
+  void dequeue() {
+    if (front == nullptr) {
+      cout << "Queue is empty.\n";
+      return;
     }
 
-    return numericID;
-}
+    Product *temp = front;
+    cout << "Sold product with serial: " << temp->getSerial()
+         << " and ID: " << temp->getProductId() << endl;
+    front = front->getNext();
+
+    if (front == nullptr)
+      rear = nullptr;
+
+    delete temp;
+  }
+
+  void displayFront() {
+    if (front != nullptr) {
+      cout << "First product in queue -> Serial: " << front->getSerial()
+           << ", Product ID: " << front->getProductId() << endl;
+    }
+  }
+
+  void displayRear() {
+    if (rear != nullptr) {
+      cout << "Last product in queue -> Serial: " << rear->getSerial()
+           << ", Product ID: " << rear->getProductId() << endl;
+    }
+  }
+};
 
 int main() {
-    // Hardcoded details
-    string name = "Muhammad Akif Hussain";
-    string vuID = "BC240417370";
+  string studentID = "BC230409379";
+  string last3 = studentID.substr(studentID.length() - 3);
+  string last4 = studentID.substr(studentID.length() - 4);
 
-    cout << "Name:  " << name << endl;
-    cout << "VU-ID: " << vuID << endl;
+  int smartphones = last3[0] - '0';
+  int tablets = last3[1] - '0';
+  int watches = last3[2] - '0';
 
-    // Get valid ID and extract digits
-    string numericID = getId();
-    string extracted = numericID.substr(2, 5);
-    cout << "\nExtracted Middle Five Digits: " << extracted << endl;
+  int productID = stoi(last4);
+  int serial = 1;
 
-    // Welcome and menu
-    cout << "\n=== Welcome to C++ Cafe ===" << endl;
-    cout << "------ MENU ------" << endl;
-    cout << "1. Burger       – Rs. 250" << endl;
-    cout << "2. Pizza        – Rs. 500" << endl;
-    cout << "3. Fries        – Rs. 150" << endl;
-    cout << "4. Sandwich     – Rs. 200" << endl;
-    cout << "5. Cold Drink   – Rs. 100" << endl;
+  Queue q;
 
-    // Prices (as per screenshot)
-    const int priceBurger = 250;
-    const int pricePizza = 500;
-    const int priceFries = 150;
-    const int priceSandwich = 200;
-    const int priceDrink = 100;
+  cout << "Student ID: " << studentID << endl;
+  cout << "==============================\n\n";
 
-    // Extract quantities
-    int qtyBurger = extracted[0] - '0';
-    int qtyPizza = extracted[1] - '0';
-    int qtyFries = extracted[2] - '0';
-    int qtySandwich = extracted[3] - '0';
-    int qtyDrink = extracted[4] - '0';
+  cout << smartphones << " smartphones being added to inventory:\n";
+  for (int i = 0; i < smartphones; ++i) {
+    q.enqueue(serial++, productID++);
+  }
 
-    // Calculate subtotals
-    int subBurger = qtyBurger * priceBurger;
-    int subPizza = qtyPizza * pricePizza;
-    int subFries = qtyFries * priceFries;
-    int subSandwich = qtySandwich * priceSandwich;
-    int subDrink = qtyDrink * priceDrink;
+  cout << "\n" << tablets << " tablets being added to inventory:\n";
+  for (int i = 0; i < tablets; ++i) {
+    q.enqueue(serial++, productID++);
+  }
 
-    // Print billing
-    cout << "\nBurger (" << qtyBurger << " x Rs. " << priceBurger << ") = Rs. " << subBurger << endl;
-    cout << "Pizza (" << qtyPizza << " x Rs. " << pricePizza << ") = Rs. " << subPizza << endl;
-    cout << "Fries (" << qtyFries << " x Rs. " << priceFries << ") = Rs. " << subFries << endl;
-    cout << "Sandwich (" << qtySandwich << " x Rs. " << priceSandwich << ") = Rs. " << subSandwich << endl;
-    cout << "Cold Drink (" << qtyDrink << " x Rs. " << priceDrink << ") = Rs. " << subDrink << endl;
+  cout << "\n" << watches << " smart watches being added to inventory:\n";
+  for (int i = 0; i < watches; ++i) {
+    q.enqueue(serial++, productID++);
+  }
 
-    // Total and discount
-    int total = subBurger + subPizza + subFries + subSandwich + subDrink;
-    double discount = 0;
+  cout << "\n-----------------------------------------\n";
+  q.displayFront();
+  cout << "-----------------------------------------\n";
+  q.displayRear();
 
-    if (total >= 5000) {
-        cout << "\nSurprise! You've unlocked a 10% discount" << endl;
-        discount = total * 0.10;
-    }
+  cout << "\n\nSelling 2 products...\n";
+  q.dequeue();
+  q.dequeue();
 
-    double finalAmount = total - discount;
+  cout << "-----------------------------------------\n";
+  q.displayFront();
+  cout << "-----------------------------------------\n";
 
-    // Final bill
-    cout << "\n==== Final Bill ====" << endl;
-    cout << "Total before discount: Rs. " << total << endl;
-    cout << "Discount: Rs. " << discount << endl;
-    cout << "Net Payable Amount: Rs. " << finalAmount << endl;
-
-    cout << "\nThank you for visiting C++ Cafe!" << endl;
-
-    return 0;
+  return 0;
 }
