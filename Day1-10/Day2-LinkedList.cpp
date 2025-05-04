@@ -1,124 +1,110 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-class Product {
-private:
-  int serial;
-  int productId;
-  Product *next;
-
-public:
-  Product(int s = 0, int pid = 0) {
-    serial = s;
-    productId = pid;
-    next = nullptr;
-  }
-
-  int getSerial() { return serial; }
-
-  int getProductId() { return productId; }
-
-  Product *getNext() { return next; }
-
-  void setNext(Product *nxt) { next = nxt; }
+// Node structure for linked list
+struct Node {
+  int data;
+  Node *next;
+  Node(int val) : data(val), next(nullptr) {}
 };
 
-class Queue {
-private:
-  Product *front;
-  Product *rear;
-
-public:
-  Queue() { front = rear = nullptr; }
-
-  void enqueue(int serial, int pid) {
-    Product *newNode = new Product(serial, pid);
-    if (rear == nullptr) {
-      front = rear = newNode;
-    } else {
-      rear->setNext(newNode);
-      rear = newNode;
-    }
-    cout << "Added -> Serial: " << serial << ", Product ID: " << pid << endl;
+// Function to print the list
+void printList(Node *head) {
+  while (head) {
+    cout << head->data << " -> ";
+    head = head->next;
   }
+  cout << "NULL\n";
+}
 
-  void dequeue() {
-    if (front == nullptr) {
-      cout << "Queue is empty.\n";
-      return;
-    }
+// Function to add node at the start
+void addAtStart(Node *&head, int val) {
+  Node *newNode = new Node(val);
+  newNode->next = head;
+  head = newNode;
+}
 
-    Product *temp = front;
-    cout << "Sold product with serial: " << temp->getSerial()
-         << " and ID: " << temp->getProductId() << endl;
-    front = front->getNext();
-
-    if (front == nullptr)
-      rear = nullptr;
-
-    delete temp;
+// Function to add node at the end
+void addAtEnd(Node *&head, int val) {
+  Node *newNode = new Node(val);
+  if (!head) {
+    head = newNode;
+    return;
   }
+  Node *temp = head;
+  while (temp->next)
+    temp = temp->next;
+  temp->next = newNode;
+}
 
-  void displayFront() {
-    if (front != nullptr) {
-      cout << "First product in queue -> Serial: " << front->getSerial()
-           << ", Product ID: " << front->getProductId() << endl;
-    }
-  }
+// Function to remove node from start
+void removeFromStart(Node *&head) {
+  if (!head)
+    return;
+  Node *temp = head;
+  head = head->next;
+  delete temp;
+}
 
-  void displayRear() {
-    if (rear != nullptr) {
-      cout << "Last product in queue -> Serial: " << rear->getSerial()
-           << ", Product ID: " << rear->getProductId() << endl;
-    }
+// Function to remove node from end
+void removeFromEnd(Node *&head) {
+  if (!head)
+    return;
+  if (!head->next) {
+    delete head;
+    head = nullptr;
+    return;
   }
-};
+  Node *temp = head;
+  while (temp->next->next)
+    temp = temp->next;
+  delete temp->next;
+  temp->next = nullptr;
+}
 
 int main() {
-  string studentID = "BC230409379";
-  string last3 = studentID.substr(studentID.length() - 3);
-  string last4 = studentID.substr(studentID.length() - 4);
+  cout << "-------------- Book Inventory Management (BC230409379) "
+          "--------------\n";
 
-  int smartphones = last3[0] - '0';
-  int tablets = last3[1] - '0';
-  int watches = last3[2] - '0';
+  // Extract first and last digits
+  string id = "BC230409379";
+  char firstChar = id[2];
+  char lastChar = id[id.length() - 1];
 
-  int productID = stoi(last4);
-  int serial = 1;
+  int firstDigit = firstChar - '0';
+  int lastDigit = lastChar - '0';
 
-  Queue q;
+  cout << "Extracted First and Last Digits are:\n";
+  cout << firstDigit << lastDigit << "\n\n";
 
-  cout << "Student ID: " << studentID << endl;
-  cout << "==============================\n\n";
+  Node *head = nullptr;
 
-  cout << smartphones << " smartphones being added to inventory:\n";
-  for (int i = 0; i < smartphones; ++i) {
-    q.enqueue(serial++, productID++);
-  }
+  // Add First digit at start
+  cout << "Added First digit at start of List:\n";
+  addAtStart(head, firstDigit);
+  addAtEnd(head, 101);
+  addAtEnd(head, 102);
+  addAtEnd(head, 103);
+  printList(head);
+  cout << "\n";
 
-  cout << "\n" << tablets << " tablets being added to inventory:\n";
-  for (int i = 0; i < tablets; ++i) {
-    q.enqueue(serial++, productID++);
-  }
+  // Add Last digit at end
+  cout << "Added Last digit at Last of List:\n";
+  addAtEnd(head, lastDigit);
+  printList(head);
+  cout << "\n";
 
-  cout << "\n" << watches << " smart watches being added to inventory:\n";
-  for (int i = 0; i < watches; ++i) {
-    q.enqueue(serial++, productID++);
-  }
+  // Remove First digit
+  cout << "Removed First digit from List:\n";
+  removeFromStart(head);
+  printList(head);
+  cout << "\n";
 
-  cout << "\n-----------------------------------------\n";
-  q.displayFront();
-  cout << "-----------------------------------------\n";
-  q.displayRear();
-
-  cout << "\n\nSelling 2 products...\n";
-  q.dequeue();
-  q.dequeue();
-
-  cout << "-----------------------------------------\n";
-  q.displayFront();
-  cout << "-----------------------------------------\n";
+  // Remove Last digit
+  cout << "Removed Last digit from List:\n";
+  removeFromEnd(head);
+  printList(head);
+  cout << "\n";
 
   return 0;
 }
