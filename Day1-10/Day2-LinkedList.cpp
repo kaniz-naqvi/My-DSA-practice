@@ -4,7 +4,7 @@ using namespace std;
 class Node {
 public:
   int value;
-  Node *next;
+  Node *next=NULL;
   Node(int data) { value = data; }
 };
 
@@ -77,7 +77,6 @@ int main() {
   myList.print();
   myList.popFront();
   cout << "After popFront\n";
-
   myList.print();
   cout << "Before popBack\n";
   myList.print();
