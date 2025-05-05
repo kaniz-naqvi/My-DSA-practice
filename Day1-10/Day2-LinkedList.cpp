@@ -1,110 +1,88 @@
 #include <iostream>
 using namespace std;
 
-// Node structure for linked list
-struct Node {
-  int data;
+class Node {
+public:
+  int value;
   Node *next;
-  Node(int val) : data(val), next(nullptr) {}
+  Node(int data) { value = data; }
 };
 
-// Function to print the list
-void printList(Node *head) {
-  while (head) {
-    cout << head->data << " -> ";
+class List {
+  Node *head;
+  Node *tail;
+
+public:
+  List() { head = tail = NULL; };
+  void pushFront(int value) {
+    Node *newNode = new Node(value);
+    if (head == NULL) {
+      head = tail = newNode;
+    } else {
+      newNode->next = head;
+      head = newNode;
+    }
+  }
+  void pushBack(int value) {
+    Node *newNode = new Node(value);
+    if (head == NULL) {
+      tail = head = newNode;
+    } else {
+      tail->next = newNode;
+      tail = newNode;
+    }
+  }
+  void popFront() {
+    Node *temp = head;
     head = head->next;
+    delete temp;
   }
-  cout << "NULL\n";
-}
+  void popBack() {
+    if (head == NULL)
+      return;
+    if (head == tail) {
+      delete head;
+      head = tail = NULL;
+      return;
+    }
 
-// Function to add node at the start
-void addAtStart(Node *&head, int val) {
-  Node *newNode = new Node(val);
-  newNode->next = head;
-  head = newNode;
-}
+    Node *curr = head;
+    while (curr->next != tail) {
+      curr = curr->next;
+    }
 
-// Function to add node at the end
-void addAtEnd(Node *&head, int val) {
-  Node *newNode = new Node(val);
-  if (!head) {
-    head = newNode;
-    return;
+    delete tail;
+    tail = curr;
+    tail->next = NULL;
   }
-  Node *temp = head;
-  while (temp->next)
-    temp = temp->next;
-  temp->next = newNode;
-}
-
-// Function to remove node from start
-void removeFromStart(Node *&head) {
-  if (!head)
-    return;
-  Node *temp = head;
-  head = head->next;
-  delete temp;
-}
-
-// Function to remove node from end
-void removeFromEnd(Node *&head) {
-  if (!head)
-    return;
-  if (!head->next) {
-    delete head;
-    head = nullptr;
-    return;
+  void print() {
+    Node *curr;
+    curr = head;
+    while (curr != NULL) {
+      cout << curr->value << " -> ";
+      curr = curr->next;
+    }
+    cout << "NULL" << endl;
   }
-  Node *temp = head;
-  while (temp->next->next)
-    temp = temp->next;
-  delete temp->next;
-  temp->next = nullptr;
-}
-
+};
 int main() {
-  cout << "-------------- Book Inventory Management (BC230409379) "
-          "--------------\n";
+  List myList;
+  myList.pushFront(1);
+  myList.pushFront(2);
+  myList.pushFront(3);
+  cout << "Before pushBack\n";
+  myList.print();
+  myList.pushBack(4);
+  cout << "Before popFront\n";
+  myList.print();
+  myList.popFront();
+  cout << "After popFront\n";
 
-  // Extract first and last digits
-  string id = "BC230409379";
-  char firstChar = id[2];
-  char lastChar = id[id.length() - 1];
-
-  int firstDigit = firstChar - '0';
-  int lastDigit = lastChar - '0';
-
-  cout << "Extracted First and Last Digits are:\n";
-  cout << firstDigit << lastDigit << "\n\n";
-
-  Node *head = nullptr;
-
-  // Add First digit at start
-  cout << "Added First digit at start of List:\n";
-  addAtStart(head, firstDigit);
-  addAtEnd(head, 101);
-  addAtEnd(head, 102);
-  addAtEnd(head, 103);
-  printList(head);
-  cout << "\n";
-
-  // Add Last digit at end
-  cout << "Added Last digit at Last of List:\n";
-  addAtEnd(head, lastDigit);
-  printList(head);
-  cout << "\n";
-
-  // Remove First digit
-  cout << "Removed First digit from List:\n";
-  removeFromStart(head);
-  printList(head);
-  cout << "\n";
-
-  // Remove Last digit
-  cout << "Removed Last digit from List:\n";
-  removeFromEnd(head);
-  printList(head);
-  cout << "\n";
-
+  myList.print();
+  cout << "Before popBack\n";
+  myList.print();
+  myList.popBack();
+  cout << "After popBack\n";
+  myList.print();
   return 0;
 }
