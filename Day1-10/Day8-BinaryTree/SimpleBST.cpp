@@ -13,26 +13,45 @@ public:
 };
 
 static int index = -1;
-Node *BST(int preoder[]) {
+Node *BuildTree(int preoder[]) {
   index++;
   if (preoder[index] == -1)
     return NULL;
   Node *newNode = new Node(preoder[index]);
   Node *root = newNode;
-  root->left = BST(preoder);
-  root->right = BST(preoder);
+  root->left = BuildTree(preoder);
+  root->right = BuildTree(preoder);
   return root;
 };
-void printTree(Node *root) {
+void preOder(Node *root) {
   if (!root)
     return;
   cout << root->value << " ";
-  printTree(root->left);
-  printTree(root->right);
+  preOder(root->left);
+  preOder(root->right);
 }
+void inOder(Node *root) {
+  if (!root)
+    return;
+  inOder(root->left);
+  cout << root->value << " ";
+  inOder(root->right);
+}
+void postOder(Node *root) {
+  if (!root)
+    return;
+  postOder(root->left);
+  postOder(root->right);
+  cout << root->value << " ";
+}
+
 int main() {
   int values[] = {50, 30, -1, -1, 70, 60, -1, -1, 80, -1, -1};
-  Node *root = BST(values);
-  printTree(root);
+  Node *root = BuildTree(values);
+  preOder(root);
+  cout << endl;
+  inOder(root);
+  cout << endl;
+  postOder(root);
   return 0;
 }
