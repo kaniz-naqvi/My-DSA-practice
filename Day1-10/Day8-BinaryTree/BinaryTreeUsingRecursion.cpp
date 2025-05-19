@@ -11,7 +11,6 @@ public:
     left = right = NULL;
   }
 };
-
 static int index = -1;
 Node *BuildTree(int preoder[]) {
   index++;
